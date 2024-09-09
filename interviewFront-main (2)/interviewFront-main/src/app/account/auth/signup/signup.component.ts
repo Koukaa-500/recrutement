@@ -16,23 +16,23 @@ import { UtilisateurService } from '../../../shared/services/utilisateur.service
 export class SignupComponent implements OnInit {
 
 
-  utilisateur:Utilisateur={} as Utilisateur;
+  utilisateur: Utilisateur = {} as Utilisateur;
 
   signupForm: UntypedFormGroup;
-  submitted:any = false;
-  error:any = '';
-  successmsg:any = false;
+  submitted: any = false;
+  error: any = '';
+  successmsg: any = false;
 
   // set the currenr year
   year: number = new Date().getFullYear();
 
   // tslint:disable-next-line: max-line-length
   constructor(private formBuilder: UntypedFormBuilder, private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService,
-    private userService: UserProfileService,private utilisateurService:UtilisateurService) { }
+    private userService: UserProfileService, private utilisateurService: UtilisateurService) { }
 
   ngOnInit() {
-    this.utilisateur.grade="Admin";
-   
+    this.utilisateur.grade = "Admin";
+
     this.signupForm = this.formBuilder.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-   this.utilisateurService.addUtilisateur(this.utilisateur).subscribe(data=>{
+    this.utilisateurService.addUtilisateur(this.utilisateur).subscribe(data => {
       console.log(data);
 
       if (environment.defaultauth === 'firebase') {
@@ -64,7 +64,7 @@ export class SignupComponent implements OnInit {
             this.error = error ? error : '';
           });
       }
-    }) 
+    })
   }
 
 }

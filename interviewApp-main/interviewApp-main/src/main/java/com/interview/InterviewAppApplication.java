@@ -18,7 +18,7 @@ public class InterviewAppApplication {
 	            @Override
 	            public void addCorsMappings(CorsRegistry registry) {
 	                registry.addMapping("/**")
-	                        .allowedOriginPatterns("http://localhost:4200" , "http://localhost:50152") // Utilisation de allowedOriginPatterns
+	                        .allowedOrigins("http://localhost:4200" , "http://localhost:50152") // Utilisation de allowedOriginPatterns
 	                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 	                        .allowedHeaders("*")
 	                        .allowCredentials(true)
