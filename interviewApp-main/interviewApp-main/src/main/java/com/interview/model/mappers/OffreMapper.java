@@ -1,9 +1,9 @@
 package com.interview.model.mappers;
 
+import com.interview.model.DTOBachka.OffreDto;
+import com.interview.model.EntityBachka.Offre;
 import org.modelmapper.ModelMapper;
 
-import com.interview.model.dto.OffreDto;
-import com.interview.model.entity.Offre;
 
 public class OffreMapper {
 	private static final ModelMapper modelMapper= new ModelMapper();
@@ -13,6 +13,7 @@ public class OffreMapper {
 	}
 
 	public static Offre convertToEntity(OffreDto offreDTO)
+
 	{
 	return modelMapper.map(offreDTO, Offre.class);	
 	}
