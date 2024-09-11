@@ -58,24 +58,22 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     } else {
-      if (environment.defaultauth === 'firebase') {
-        this.authenticationService.login(this.f.email.value, this.f.password.value).then((res: any) => {
-          this.router.navigate(['/contacts/profile']);
-        })
-          .catch(error => {
-            this.error = error ? error : '';
-          });
-      } else {
-        this.authFackservice.login(this.f.email.value, this.f.password.value)
-          .pipe(first())
-          .subscribe(
-            data => {
-              this.router.navigate(['/contacts/profile']);
-            },
-            error => {
-              this.error = error ? error : '';
-            });
+
+        this.authenticationService.login(this.f.email.value, this.f.password.value).subscribe({
+          next: (response) => {
+            
+            this.router.navigate(['/contacts/profile']);
+            console.log('Connexion réussie', response);
+            localStorage.setItem('user', JSON.stringify(response));
+
+          },
+          error: (error) => {
+            // Gérer l'erreur de connexion
+            console.error('Erreur de connexion', error);
+            // this.errorMessage = 'Email ou mot de passe incorrect';
+          }
+        });
       }
     }
   }
-}
+

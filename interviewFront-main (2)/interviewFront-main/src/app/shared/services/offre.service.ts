@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class OffreService {
-url = "http://localhost:8080/offre";
+url = "http://localhost:8082/offre";
   constructor(private http:HttpClient) { }
   /*
   private final OffreService offreService;

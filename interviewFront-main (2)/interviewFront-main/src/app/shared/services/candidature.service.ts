@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CandidatureService {
-url = "http://localhost:8080/candidature";
+url = "http://localhost:8082/candidature";
   constructor(private http:HttpClient) { }
   /*
   @PostMapping("/{id}")

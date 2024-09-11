@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Utilisateur } from 'src/app/shared/classes/utilisateur';
+import { Utilisateur } from 'src/app/account/auth/Utilisateur';
 import { environment } from '../../../../environments/environment';
 import { AuthenticationService } from '../../../core/services/auth.service';
 import { UserProfileService } from '../../../core/services/user.service';
 import { UtilisateurService } from '../../../shared/services/utilisateur.service';
+import { User } from 'src/app/core/models/auth.models';
 
 @Component({
   selector: 'app-signup',
@@ -31,7 +32,7 @@ export class SignupComponent implements OnInit {
     private userService: UserProfileService,private utilisateurService:UtilisateurService) { }
 
   ngOnInit() {
-    this.utilisateur.grade="Admin";
+  
    
     this.signupForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -50,22 +51,22 @@ export class SignupComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-   this.utilisateurService.addUtilisateur(this.utilisateur).subscribe(data=>{
-      console.log(data);
-
-      if (environment.defaultauth === 'firebase') {
-        this.authenticationService.register(this.utilisateur.email, this.utilisateur.mdp).then((res: any) => {
-          this.successmsg = true;
-          if (this.successmsg) {
-            this.router.navigate(['/dashboard']);
-          }
-        })
-          .catch(error => {
-            this.error = error ? error : '';
-          });
+    const utilisateur: Utilisateur = this.utilisateur;
+     console.log(this.utilisateur)
+    this.authenticationService.signUp(utilisateur).subscribe(
+      (response) => {
+        this.successmsg = 'Inscription réussie!';
+        console.log('Utilisateur inscrit:', response);
+        localStorage.setItem('user', JSON.stringify(response));
+        this.router.navigate(['/contacts/profile']);
+      },
+      (error) => {
+        this.error = 'Erreur lors de l’inscription. Veuillez réessayer.';
+        console.error(error);
       }
-    }) 
+    );
+  }
   }
 
-}
+
 

@@ -32,7 +32,7 @@ export interface Utilisateur {
     prenom: string;
     age: number;
     email: string;
-    mdp: string;
+    motDePasse: string;
     grade: string;
     profile: Profile;
     tests: Test[];
