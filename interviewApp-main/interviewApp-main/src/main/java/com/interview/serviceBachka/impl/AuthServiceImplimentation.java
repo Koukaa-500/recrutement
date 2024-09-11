@@ -88,22 +88,23 @@ public class AuthServiceImplimentation implements AuthService {
         return null;
     }
     @Override
-    public Utilisateur login(String email, String rawPassword) {
-        if (administrateurRepository.existsByEmail(email)) {
-            Administrateur user = administrateurRepository.findByEmail(email)
+    public Utilisateur login(Utilisateur user) {
+        if (administrateurRepository.existsByEmail(user.getEmail())) {
+            Administrateur newuser = administrateurRepository.findByEmail(user.getEmail())
                     .orElseThrow(() -> new RuntimeException("Administrateur not found"));
-            if (passwordEncoder.matches(rawPassword, user.getMotDePasse())) {
+            if (passwordEncoder.matches(user.getMotDePasse(), newuser.getMotDePasse())) {
                 return user;
             } else {
                 throw new RuntimeException("Invalid password for Administrateur");
             }
         }
 
+
         // Check if the user is a Recruteur
-        if (recruteurRepository.existsByEmail(email)) {
-            Recruteur user = recruteurRepository.findByEmail(email)
+        if (recruteurRepository.existsByEmail(user.getEmail())) {
+            Recruteur newuser = recruteurRepository.findByEmail(user.getEmail())
                     .orElseThrow(() -> new RuntimeException("Recruteur not found"));
-            if (passwordEncoder.matches(rawPassword, user.getMotDePasse())) {
+            if (passwordEncoder.matches(user.getMotDePasse(), newuser.getMotDePasse())) {
                 return user;
             } else {
                 throw new RuntimeException("Invalid password for Recruteur");
@@ -111,10 +112,10 @@ public class AuthServiceImplimentation implements AuthService {
         }
 
         // Check if the user is a Candidat
-        if (candidatRepository.existsByEmail(email)) {
-            Candidat user = candidatRepository.findByEmail(email)
+        if (candidatRepository.existsByEmail(user.getEmail())) {
+            Candidat newuser = candidatRepository.findByEmail(user.getEmail())
                     .orElseThrow(() -> new RuntimeException("Candidat not found"));
-            if (passwordEncoder.matches(rawPassword, user.getMotDePasse())) {
+            if (passwordEncoder.matches(user.getMotDePasse(),newuser.getMotDePasse())) {
                 return user;
             } else {
                 throw new RuntimeException("Invalid password for Candidat");

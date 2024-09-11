@@ -31,9 +31,9 @@ public class AuthController {
 
     // Endpoint for user login
     @PostMapping("/login")
-    public ResponseEntity<Utilisateur> login(@RequestParam String email, @RequestParam String password) {
+    public ResponseEntity<Utilisateur> login(@RequestBody  Utilisateur user) {
         try {
-            Utilisateur loggedInUser = authService.login(email, password);
+            Utilisateur loggedInUser = authService.login(user);
             return ResponseEntity.ok(loggedInUser); // Return the user if login is successful
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(null); // Return an error message
