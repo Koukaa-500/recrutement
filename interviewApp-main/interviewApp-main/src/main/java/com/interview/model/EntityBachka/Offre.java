@@ -1,7 +1,6 @@
 package com.interview.model.EntityBachka;
 
-import com.interview.model.entity.BaseEntity;
-import com.interview.model.entity.Utilisateur;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -30,7 +29,7 @@ public class Offre {
     private String ville;
     private LocalDateTime limite;
     private String contractType ;
-    @ManyToOne(optional = false,fetch = FetchType.EAGER)
+//    @ManyToOne(optional = false,fetch = FetchType.EAGER)
     private Recruteur recruteur;
 
 }

@@ -1,6 +1,6 @@
 package com.interview.model.DTOBachka;
 
-import com.interview.model.dto.UtilisateurDto;
+import com.interview.model.EntityBachka.Utilisateur;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -16,6 +16,6 @@ public class OffreDto {
     private String description;
     @Future
     private LocalDateTime limite;
-    private UtilisateurDto recruteur;
+    private Utilisateur recruteur;
 }
 

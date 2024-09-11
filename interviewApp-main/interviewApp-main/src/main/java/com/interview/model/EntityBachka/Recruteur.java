@@ -23,7 +23,7 @@ public class Recruteur extends Utilisateur{
     private  String secteurActivite;
 
     private  String website;
-    @OneToMany
+  //  @OneToMany
     private List<Offre> offres;
     @PrePersist
     public void init()
