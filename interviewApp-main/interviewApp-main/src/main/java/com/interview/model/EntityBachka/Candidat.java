@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Candidat extends Utilisateur {
+public class Candidat extends Utilisateur  {
     List<String> education;
     List<String> skills;
     List<String> certificates;

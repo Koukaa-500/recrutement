@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/interviewApp-main/interviewApp.iml" filepath="$PROJECT_DIR$/interviewApp-main/interviewApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/interviewApp-main.iml" filepath="$PROJECT_DIR$/.idea/interviewApp-main.iml" />
     </modules>
   </component>
