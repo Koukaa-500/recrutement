@@ -35,16 +35,16 @@ export const MENU: MenuItem[] = [
                 label: 'MENUITEMS.DASHBOARDS.LIST.BLOG',
                 link: '/dashboards/blog',
                 parentId: 2
-            },
+            },*/
             {
                 id: 7,
                 label: 'MENUITEMS.DASHBOARDS.LIST.JOBS',
                 link: '/dashboards/jobs',
                 parentId: 2,
-            },*/
+            },
         ]
     },
-   /* {
+    {
         id: 8,
         isLayout: true
     },
@@ -67,8 +67,8 @@ export const MENU: MenuItem[] = [
         icon: 'bx-chat',
         link: '/chat',
         
-    },*/
-    /*
+    },
+    
     {
         id: 12,
         label: 'MENUITEMS.FILEMANAGER.TEXT',
@@ -81,18 +81,6 @@ export const MENU: MenuItem[] = [
         icon: 'bx-store',
         subItems: [
             {
-                id: 14,
-                label: 'MENUITEMS.ECOMMERCE.LIST.PRODUCTS',
-                link: '/ecommerce/products',
-                parentId: 13
-            },
-            {
-                id: 15,
-                label: 'MENUITEMS.ECOMMERCE.LIST.PRODUCTDETAIL',
-                link: '/ecommerce/product-detail/1',
-                parentId: 13
-            },
-            {
                 id: 16,
                 label: 'MENUITEMS.ECOMMERCE.LIST.ORDERS',
                 link: '/ecommerce/orders',
@@ -104,6 +92,20 @@ export const MENU: MenuItem[] = [
                 link: '/ecommerce/customers',
                 parentId: 13
             },
+           /* {
+                id: 14,
+                label: 'MENUITEMS.ECOMMERCE.LIST.PRODUCTS',
+                link: '/ecommerce/products',
+                parentId: 13
+            },
+            {
+                id: 15,
+                label: 'MENUITEMS.ECOMMERCE.LIST.PRODUCTDETAIL',
+                link: '/ecommerce/product-detail/1',
+                parentId: 13
+            },
+        
+        
             {
                 id: 18,
                 label: 'MENUITEMS.ECOMMERCE.LIST.CART',
@@ -127,9 +129,9 @@ export const MENU: MenuItem[] = [
                 label: 'MENUITEMS.ECOMMERCE.LIST.ADDPRODUCT',
                 link: '/ecommerce/add-product',
                 parentId: 13
-            },
+            },*/
         ]
-    },*/
+    },
     {
         id: 22,
         label: 'MENUITEMS.CRYPTO.TEXT',
@@ -139,6 +141,12 @@ export const MENU: MenuItem[] = [
                 id: 23,
                 label: 'MENUITEMS.CRYPTO.LIST.WALLET',
                 link: '/crypto/wallet',
+                parentId: 22
+            },
+            {
+                id: 27,
+                label: 'MENUITEMS.CRYPTO.LIST.LISTJOBS',
+                link: '/crypto/orders',
                 parentId: 22
             },
            /* {
@@ -159,12 +167,7 @@ export const MENU: MenuItem[] = [
                 link: '/crypto/lending',
                 parentId: 22
             },
-           {
-                id: 27,
-                label: 'MENUITEMS.CRYPTO.LIST.ORDERS',
-                link: '/crypto/orders',
-                parentId: 22
-            },
+         
             {
                 id: 28,
                 label: 'MENUITEMS.CRYPTO.LIST.KYCAPPLICATION',
@@ -367,7 +370,7 @@ export const MENU: MenuItem[] = [
                 link: '/jobs/list',
                 parentId: 57
             },
-          /*    {
+             {
                 id: 59,
                 label: 'MENUITEMS.JOBS.LIST.JOBGRID',
                 link: '/jobs/grid',
@@ -413,7 +416,7 @@ export const MENU: MenuItem[] = [
                         parentId:57
                     }
                 ]
-            }*/
+            }
         ]
     },
     /*

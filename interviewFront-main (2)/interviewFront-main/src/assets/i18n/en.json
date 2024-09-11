@@ -130,6 +130,7 @@
         "EXCHANGE": "Contrats",
         "LENDING": "Adresses",
         "ORDERS": "Orders",
+        "LISTJOBS":"List of Jobs",
         "KYCAPPLICATION": "KYC Application",
         "ICOLANDING": "ICO Landing"
       }

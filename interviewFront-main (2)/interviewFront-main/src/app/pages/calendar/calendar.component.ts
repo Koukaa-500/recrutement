@@ -209,6 +209,7 @@ export class CalendarComponent implements OnInit {
       const title = this.formData.get('title').value;
       const className = this.formData.get('category').value;
       const calendarApi = this.newEventDate.view.calendar;
+      console.log('date::',calendarApi)
       calendarApi.addEvent({
         id: createEventId(),
         title,

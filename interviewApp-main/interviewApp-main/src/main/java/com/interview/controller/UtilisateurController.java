@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/utilisateur")
 @RequiredArgsConstructor
-public class UtilisateurController {
+public class 	UtilisateurController {
 	private final UtilisateurService utilisateurService;
 	@PostMapping
 	public ResponseEntity<UtilisateurDto> addOneUser(@RequestBody UtilisateurDto utilisateur)
