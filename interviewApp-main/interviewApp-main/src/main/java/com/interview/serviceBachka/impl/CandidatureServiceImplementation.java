@@ -2,6 +2,7 @@ package com.interview.serviceBachka.impl;
 
 import com.interview.model.DTOBachka.CandidatureDto;
 import com.interview.model.EntityBachka.Candidature;
+import com.interview.model.EntityBachka.Enum.CandidatureStatus;
 import com.interview.model.mappers.CandidatureMapper;
 import com.interview.repositoryBachka.CandidatureRepository;
 import com.interview.serviceBachka.CandidatureService;
@@ -26,4 +27,18 @@ public class CandidatureServiceImplementation implements CandidatureService {
         return candidatureRepository.findAll().stream().filter(candidature -> candidature.getId().equals(id)).
                 map(CandidatureMapper::convertToDTO).toList();
     }
+
+    @Override
+    public CandidatureDto changeCandidatureStatus(CandidatureDto candidatureDto, CandidatureStatus status) {
+        Candidature candidature= CandidatureMapper.convertToEntity(candidatureDto);
+        candidature.setStatus(status);
+        return CandidatureMapper.convertToDTO( candidatureRepository.save(candidature));
+
+    }
+
+    @Override
+    public Boolean supprimerCandidature(CandidatureDto candidatureDto) {
+        return null;
+    }
+
 }

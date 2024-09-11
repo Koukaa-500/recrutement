@@ -28,7 +28,7 @@ public class AuthServiceImplimentation implements AuthService {
     public Utilisateur signUp(Utilisateur user) {
         String encodedPassword = passwordEncoder.encode(user.getMotDePasse());
 
-        if (user.getRole() == admin) {
+        if (user.getRole() .equals(admin) ) {
             if (recruteurRepository.existsByEmail(user.getEmail()) || candidatRepository.existsByEmail(user.getEmail())) {
                 throw new RuntimeException("User with this email is already a Recruteur or Candidat.");
             }
@@ -47,7 +47,7 @@ public class AuthServiceImplimentation implements AuthService {
             }
         }
 
-        if (user.getRole() == recruteur) {
+        if (user.getRole() .equals(recruteur) ) {
             if (administrateurRepository.existsByEmail(user.getEmail()) || candidatRepository.existsByEmail(user.getEmail())) {
                 throw new RuntimeException("User with this email is already an Administrateur or Candidat.");
             }
@@ -66,7 +66,7 @@ public class AuthServiceImplimentation implements AuthService {
             }
         }
 
-        if (user.getRole() == candidat) {
+        if (user.getRole() .equals(candidat) ) {
             if (administrateurRepository.existsByEmail(user.getEmail()) || recruteurRepository.existsByEmail(user.getEmail())) {
                 throw new RuntimeException("User with this email is already an Administrateur or Recruteur.");
             }

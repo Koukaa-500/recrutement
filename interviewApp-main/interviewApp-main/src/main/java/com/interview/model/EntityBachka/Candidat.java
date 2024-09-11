@@ -15,12 +15,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Candidat extends Utilisateur  {
-    List<String> education;
-    List<String> skills;
-    List<String> certificates;
+   private List<String> education;
+    private   List<String> skills;
+    private  List<String> certificates;
+
+    private  List<Interview> interviews;
     @PrePersist
     public void init()
     {
-        this.setRole(RoleUtilisateur.admin);
+        this.setRole(RoleUtilisateur.candidat);
     }
 }

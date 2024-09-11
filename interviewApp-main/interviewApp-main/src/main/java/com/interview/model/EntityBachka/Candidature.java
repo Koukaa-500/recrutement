@@ -22,9 +22,9 @@ public class Candidature implements Serializable {
     @Id
     private Integer id;
     private CandidatureStatus status;
-  //  @OneToOne
+    @OneToOne
     private Offre offre;
- //   @OneToOne
+    @OneToOne
     private Candidat candidat;
     @PrePersist
     public void init()

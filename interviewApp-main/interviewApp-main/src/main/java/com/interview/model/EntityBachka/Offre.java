@@ -30,7 +30,7 @@ public class Offre implements Serializable {
     private String ville;
     private LocalDateTime limite;
     private String contractType ;
-//    @ManyToOne(optional = false,fetch = FetchType.EAGER)
+   @ManyToOne(optional = false,fetch = FetchType.EAGER)
     private Recruteur recruteur;
 
 }
