@@ -58,7 +58,8 @@ export class SignupComponent implements OnInit {
         this.successmsg = 'Inscription réussie!';
         console.log('Utilisateur inscrit:', response);
         localStorage.setItem('user', JSON.stringify(response));
-        this.router.navigate(['/contacts/profile']);
+        this.successmsg = true;
+        this.router.navigate(['dashboard']);
       },
       (error) => {
         this.error = 'Erreur lors de l’inscription. Veuillez réessayer.';

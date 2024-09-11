@@ -27,7 +27,7 @@ interviews:any;
 
   constructor(private utilisateurService:UtilisateurService, private interviewService:InterviewService) { 
     this.email = localStorage.getItem('user');
-    console.log(this.email);
+    
     this.getInterviews();
   }
 getInterviews()
@@ -38,6 +38,7 @@ getInterviews()
   })
 }
   ngOnInit() {
+    console.log("data::",this.email);
     this.getUserbyEmail(this.email.email);
 
     this.breadCrumbItems = [{ label: 'Contacts' }, { label: 'Profile', active: true }];

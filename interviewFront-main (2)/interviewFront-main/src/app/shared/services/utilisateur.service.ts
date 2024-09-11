@@ -8,7 +8,7 @@ export class UtilisateurService {
 // crud operations pour utilisateur avec url de base: http://localhost:8080/utilisateur
 // integration avec spring boot et angular 
 // injection du http client dans le constructeur
-url="http://localhost:8082/";
+url="http://localhost:8082";
 constructor(private http: HttpClient) { }
 // recuperer tous les utilisateurs
 getUtilisateurs(){
