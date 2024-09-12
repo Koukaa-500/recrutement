@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Offre implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)  // or GenerationType.AUTO
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "offre_seq")
+    @SequenceGenerator(name = "offre_seq", sequenceName = "offre_seq", allocationSize = 1)
     private Integer id;
     private String description;
     private String domaine;
@@ -33,7 +34,7 @@ public class Offre implements Serializable {
     private LocalDateTime limite;
     private String contractType ;
 
-    @OneToOne
+    @ManyToOne
     private Recruteur recruteur;
 
 }
