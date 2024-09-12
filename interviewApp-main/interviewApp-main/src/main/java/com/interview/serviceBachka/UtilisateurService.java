@@ -1,9 +1,6 @@
 package com.interview.serviceBachka;
 
-import com.interview.model.EntityBachka.Administrateur;
-import com.interview.model.EntityBachka.Candidat;
-import com.interview.model.EntityBachka.Recruteur;
-import com.interview.model.EntityBachka.Utilisateur;
+import com.interview.model.EntityBachka.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,4 +25,7 @@ public interface UtilisateurService {
     Optional<Candidat> modifyCandidat(Candidat candidat);
 
     boolean deleteCandidatById(Integer id);
+
+
+    Optional<List<Candidat>> getCandidatByRecruteurOffre(Integer recruteur);
 }

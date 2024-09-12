@@ -2,6 +2,8 @@ package com.interview.model.DTOBachka;
 
 import com.interview.model.EntityBachka.Recruteur;
 import com.interview.model.EntityBachka.Utilisateur;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -9,6 +11,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 @Data
 public class OffreDto {
+
     private Integer id;
     @NotBlank
 

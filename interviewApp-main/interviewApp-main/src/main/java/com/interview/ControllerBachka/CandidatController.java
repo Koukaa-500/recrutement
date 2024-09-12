@@ -42,4 +42,10 @@ public class CandidatController {
         boolean isDeleted = utilisateurService.deleteCandidatById(id);
         return isDeleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/all/{recruterId}")
+    public ResponseEntity<List<Candidat>> getCandidatByRecruteurOffre(@PathVariable Integer recruterId) {
+      return ResponseEntity.ok().body( utilisateurService.getCandidatByRecruteurOffre(recruterId).get());
+    }
+
 }

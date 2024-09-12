@@ -28,6 +28,8 @@ public class Offre implements Serializable {
     private String ville;
     private LocalDateTime limite;
     private String contractType ;
-    private Integer recruteur;
+
+    @OneToOne
+    private Recruteur recruteur;
 
 }

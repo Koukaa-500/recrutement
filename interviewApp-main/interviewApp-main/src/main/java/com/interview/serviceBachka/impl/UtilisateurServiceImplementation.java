@@ -1,16 +1,12 @@
 package com.interview.serviceBachka.impl;
 
-import com.interview.model.EntityBachka.Administrateur;
-import com.interview.model.EntityBachka.Candidat;
-import com.interview.model.EntityBachka.Recruteur;
-import com.interview.repositoryBachka.AdministrateurRepository;
-import com.interview.repositoryBachka.CandidatRepository;
-import com.interview.repositoryBachka.RecruteurRepository;
-import com.interview.repositoryBachka.UtilisateurRepostitory;
+import com.interview.model.EntityBachka.*;
+import com.interview.repositoryBachka.*;
 import com.interview.serviceBachka.UtilisateurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 
 public class UtilisateurServiceImplementation implements UtilisateurService {
-    private final UtilisateurRepostitory utilisateurRepository;
+    private final CandidatureRepository candidatureRepository;
     private final AdministrateurRepository administrateurRepository;
     private final CandidatRepository candidatRepository;
     private final RecruteurRepository recruteurRepository;
@@ -108,4 +104,23 @@ public class UtilisateurServiceImplementation implements UtilisateurService {
         }
         return false;
     }
+
+
+    @Override
+    public Optional<List<Candidat>> getCandidatByRecruteurOffre(Integer recruteur) {
+
+      List<Candidature> list=  candidatureRepository.findAll();
+        Optional<List<Candidat>> listCandidat = Optional.of(Collections.emptyList());
+        for (Candidature c:list
+             ) {
+            if(c.getOffre().getRecruteur().getId().equals(recruteur)){
+                listCandidat.get().add(c.getCandidat());
+            }
+
+        }
+
+        return listCandidat;
+    }
+
+
 }

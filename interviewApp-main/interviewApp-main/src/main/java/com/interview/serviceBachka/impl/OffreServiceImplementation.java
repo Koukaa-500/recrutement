@@ -27,8 +27,8 @@ public class OffreServiceImplementation implements OffreService {
     public OffreDto ajouterOffre(OffreDto offreDto) {
         if(offreRepository.existsById(offreDto.getId()))return null;
         else {
-            Offre offre = OffreMapper.convertToEntity(offreDto);
-            Recruteur recruteur = recruteurRepositoryRepository.getReferenceById(offre.getRecruteur());
+            Offre offre = OffreMapper.convertToEntity(offreDto,recruteurRepositoryRepository.getReferenceById(offreDto.getRecruteur()));
+            Recruteur recruteur = recruteurRepositoryRepository.getReferenceById(offre.getRecruteur().getId());
 
                 List<Offre> list = recruteur.getOffres();
                 list.add(offre);
@@ -47,7 +47,7 @@ public class OffreServiceImplementation implements OffreService {
 
         {
             Offre offre = offreRepository.getReferenceById(id);
-            Recruteur recruteur = recruteurRepositoryRepository.getReferenceById(offre.getRecruteur());
+            Recruteur recruteur = recruteurRepositoryRepository.getReferenceById(offre.getRecruteur().getId());
             List<Offre> list = recruteur.getOffres();
             list.remove(offre);
             recruteur.setOffres(list);
@@ -59,7 +59,7 @@ public class OffreServiceImplementation implements OffreService {
 
     @Override
     public OffreDto ModifierOffre(OffreDto offreDto) {
-        Offre offre = OffreMapper.convertToEntity(offreDto);
+        Offre offre = OffreMapper.convertToEntity(offreDto,recruteurRepositoryRepository.getReferenceById(offreDto.getRecruteur()));
 
         return OffreMapper.convertToDTO(offreRepository.save(offre));
     }
