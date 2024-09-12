@@ -19,8 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Offre implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "offre_seq")
-    @SequenceGenerator(name = "offre_seq", sequenceName = "offre_seq", allocationSize = 1)
+    @GeneratedValue  // Or another strategy like SEQUENCE
     private Integer id;
     private String description;
     private String domaine;
