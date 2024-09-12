@@ -1,7 +1,7 @@
 package com.interview.serviceBachka.impl;
 
-import com.interview.model.EntityBachka.*;
-import com.interview.repositoryBachka.*;
+import com.interview.model.Entity1.*;
+import com.interview.repository1.*;
 import com.interview.serviceBachka.UtilisateurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

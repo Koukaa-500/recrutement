@@ -1,6 +1,6 @@
 package com.interview.serviceBachka;
 
-import com.interview.model.EntityBachka.*;
+import com.interview.model.Entity1.*;
 
 import java.util.List;
 import java.util.Optional;

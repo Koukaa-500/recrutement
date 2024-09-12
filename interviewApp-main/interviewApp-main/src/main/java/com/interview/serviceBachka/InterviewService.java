@@ -1,7 +1,7 @@
 package com.interview.serviceBachka;
 
-import com.interview.model.DTOBachka.CandidatDto;
-import com.interview.model.DTOBachka.InterviewDto;
+import com.interview.model.DTO1.CandidatDto;
+import com.interview.model.DTO1.InterviewDto;
 
 public interface InterviewService {
     InterviewDto ajouterInterview(InterviewDto interviewDto);

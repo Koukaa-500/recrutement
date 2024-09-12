@@ -1,6 +1,6 @@
 package com.interview.serviceBachka;
 
-import com.interview.model.EntityBachka.Utilisateur;
+import com.interview.model.Entity1.Utilisateur;
 
 public interface AuthService {
     public Utilisateur signUp(Utilisateur user);

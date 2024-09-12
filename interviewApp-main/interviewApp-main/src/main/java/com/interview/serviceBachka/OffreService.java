@@ -1,9 +1,8 @@
 package com.interview.serviceBachka;
 
-import com.interview.model.DTOBachka.CandidatureDto;
-import com.interview.model.DTOBachka.OffreDto;
-import com.interview.model.EntityBachka.Enum.OffreStatus;
-import org.springframework.stereotype.Service;
+import com.interview.model.DTO1.OffreDto;
+import com.interview.model.Entity1.Candidat;
+import com.interview.model.Entity1.Enum.OffreStatus;
 
 import java.util.List;
 
@@ -17,4 +16,6 @@ public interface OffreService {
 
     Long getNumberofAllOffers();
     Integer getNumberOfCandidatesPerOffer(OffreDto offreDto);
+    List<OffreDto> OffresOfCandidat(Candidat candidat);
+
 }

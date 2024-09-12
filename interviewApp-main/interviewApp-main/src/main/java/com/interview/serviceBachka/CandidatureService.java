@@ -1,9 +1,7 @@
 package com.interview.serviceBachka;
 
-import com.interview.model.DTOBachka.CandidatureDto;
-import com.interview.model.EntityBachka.Candidature;
-import com.interview.model.EntityBachka.Enum.CandidatureStatus;
-import org.springframework.stereotype.Service;
+import com.interview.model.DTO1.CandidatureDto;
+import com.interview.model.Entity1.Enum.CandidatureStatus;
 
 import java.util.List;
 

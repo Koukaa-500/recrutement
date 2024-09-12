@@ -1,20 +1,20 @@
 package com.interview.serviceBachka.impl;
 
-import com.interview.model.DTOBachka.OffreDto;
-import com.interview.model.EntityBachka.Enum.OffreStatus;
-import com.interview.model.EntityBachka.Offre;
-import com.interview.model.EntityBachka.Recruteur;
+import com.interview.model.DTO1.OffreDto;
+import com.interview.model.Entity1.Candidat;
+import com.interview.model.Entity1.Enum.OffreStatus;
+import com.interview.model.Entity1.Offre;
+import com.interview.model.Entity1.Recruteur;
 import com.interview.model.mappers.OffreMapper;
-import com.interview.repositoryBachka.CandidatureRepository;
-import com.interview.repositoryBachka.OffreRepository;
-import com.interview.repositoryBachka.RecruteurRepository;
+import com.interview.repository1.CandidatureRepository;
+import com.interview.repository1.OffreRepository;
+import com.interview.repository1.RecruteurRepository;
 import com.interview.serviceBachka.OffreService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -98,6 +98,12 @@ public class OffreServiceImplementation implements OffreService {
         return candidatureRepository.countByOffre(offre);
 
     }
+@Override
+public  List<OffreDto> OffresOfCandidat(Candidat candidat){
+
+    return null;
+}
+
 
 
 

@@ -1,19 +1,18 @@
 package com.interview.serviceBachka.impl;
 
-import com.interview.model.EntityBachka.Administrateur;
-import com.interview.model.EntityBachka.Candidat;
-import com.interview.model.EntityBachka.Enum.RoleUtilisateur;
-import com.interview.model.EntityBachka.Recruteur;
-import com.interview.model.EntityBachka.Utilisateur;
-import com.interview.repositoryBachka.AdministrateurRepository;
-import com.interview.repositoryBachka.CandidatRepository;
-import com.interview.repositoryBachka.RecruteurRepository;
+import com.interview.model.Entity1.Administrateur;
+import com.interview.model.Entity1.Candidat;
+import com.interview.model.Entity1.Recruteur;
+import com.interview.model.Entity1.Utilisateur;
+import com.interview.repository1.AdministrateurRepository;
+import com.interview.repository1.CandidatRepository;
+import com.interview.repository1.RecruteurRepository;
 import com.interview.serviceBachka.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import static com.interview.model.EntityBachka.Enum.RoleUtilisateur.*;
+import static com.interview.model.Entity1.Enum.RoleUtilisateur.*;
 
 @Service
 @RequiredArgsConstructor

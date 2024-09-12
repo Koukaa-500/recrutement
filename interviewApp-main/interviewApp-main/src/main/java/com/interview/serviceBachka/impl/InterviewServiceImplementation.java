@@ -1,19 +1,18 @@
 package com.interview.serviceBachka.impl;
 
-import com.interview.model.DTOBachka.CandidatDto;
-import com.interview.model.DTOBachka.InterviewDto;
-import com.interview.model.EntityBachka.Candidat;
-import com.interview.model.EntityBachka.Interview;
-import com.interview.repositoryBachka.CandidatRepository;
-import com.interview.repositoryBachka.InterviewRepository;
+import com.interview.model.DTO1.CandidatDto;
+import com.interview.model.DTO1.InterviewDto;
+import com.interview.model.Entity1.Candidat;
+import com.interview.model.Entity1.Interview;
+import com.interview.repository1.CandidatRepository;
+import com.interview.repository1.InterviewRepository;
 import com.interview.serviceBachka.InterviewService;
 import lombok.RequiredArgsConstructor;
-import org.antlr.v4.runtime.misc.LogManager;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import static com.interview.model.mappers.CandidatMapper.convertToDTO;
+
 import static com.interview.model.mappers.CandidatMapper.convertToEntity;
 
 import static com.interview.model.mappers.InterviewMapper.convertToDTO;

@@ -1,8 +1,8 @@
 package com.interview.model.mappers;
 
-import com.interview.model.DTOBachka.OffreDto;
-import com.interview.model.EntityBachka.Offre;
-import com.interview.model.EntityBachka.Recruteur;
+import com.interview.model.DTO1.OffreDto;
+import com.interview.model.Entity1.Offre;
+import com.interview.model.Entity1.Recruteur;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 

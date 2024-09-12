@@ -1,9 +1,7 @@
 package com.interview.model.mappers;
 
-import com.interview.model.DTOBachka.CandidatDto;
-import com.interview.model.DTOBachka.CandidatureDto;
-import com.interview.model.EntityBachka.Candidat;
-import com.interview.model.EntityBachka.Candidature;
+import com.interview.model.DTO1.CandidatDto;
+import com.interview.model.Entity1.Candidat;
 import org.modelmapper.ModelMapper;
 
 public class CandidatMapper {
