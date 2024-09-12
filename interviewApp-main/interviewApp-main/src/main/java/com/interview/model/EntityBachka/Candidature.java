@@ -28,6 +28,6 @@ public class Candidature implements Serializable {
     @PrePersist
     public void init()
     {
-        this.setStatus(CandidatureStatus.Wait);
+        this.setStatus(CandidatureStatus.PENDING);
     }
 }

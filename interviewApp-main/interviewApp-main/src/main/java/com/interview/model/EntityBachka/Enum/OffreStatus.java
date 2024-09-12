@@ -1,6 +1,6 @@
 package com.interview.model.EntityBachka.Enum;
 
-public enum CandidatureStatus {
+public enum OffreStatus {
     ACCEPTED,
     PENDING,
     REJECTED

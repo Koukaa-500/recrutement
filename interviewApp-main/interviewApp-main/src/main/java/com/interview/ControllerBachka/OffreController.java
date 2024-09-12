@@ -1,5 +1,6 @@
 package com.interview.ControllerBachka;
 
+import com.interview.model.EntityBachka.Enum.OffreStatus;
 import com.interview.serviceBachka.OffreService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -37,6 +38,22 @@ public class OffreController {
 	public void deleteOne(@PathVariable Integer id )
 	{
 		offreService.SupprimerOffre(id);
+	}
+
+	@PutMapping("/{status}")
+	public void changeStatus(@RequestBody OffreDto offreDto,@PathVariable OffreStatus status )
+	{
+		offreService.setOffreStatus(offreDto,status);
+	}
+	@GetMapping("/count")
+	public Long getNumberofAllOffers() {
+		return offreService.getNumberofAllOffers();
+	}
+
+	// Endpoint to get the number of candidates for a specific offer
+	@PostMapping("/candidates/count")
+	public Integer getNumberOfCandidatesPerOffer(@RequestBody OffreDto offreDto) {
+		return offreService.getNumberOfCandidatesPerOffer(offreDto);
 	}
 
 }

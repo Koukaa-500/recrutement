@@ -26,5 +26,7 @@
             private Integer age;
             private String motDePasse;
             private String email;
+            @Enumerated(EnumType.STRING)  // Persist enum as a string in the database
+
             private RoleUtilisateur role;
         }
