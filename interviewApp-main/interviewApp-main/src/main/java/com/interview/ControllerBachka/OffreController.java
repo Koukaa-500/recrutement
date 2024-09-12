@@ -23,13 +23,13 @@ public class OffreController {
 	{
 		return ResponseEntity.ok(offreService.ajouterOffre(offre));
 	}
-	@PutMapping
+	@PutMapping("/modify")
 	public ResponseEntity<OffreDto> modifierOffre(@RequestBody OffreDto offre)
 	{
 		return ResponseEntity.ok(offreService.ModifierOffre(offre));
 	}
 	@GetMapping("/all")
-	public ResponseEntity<List<OffreDto>> getAllOffres(@PathVariable long id)
+	public ResponseEntity<List<OffreDto>> getAllOffres()
 	{
 		return ResponseEntity.ok(offreService.getAllOffre());
 	}

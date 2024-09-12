@@ -28,12 +28,15 @@ public class OffreServiceImplementation implements OffreService {
         if(offreRepository.existsById(offreDto.getId()))return null;
         else {
             Offre offre = OffreMapper.convertToEntity(offreDto);
-            Recruteur recruteur = offre.getRecruteur();
-            List<Offre> list = recruteur.getOffres();
-            list.add(offre);
-            recruteur.setOffres(list);
-            recruteurRepositoryRepository.save(recruteur);
-            return OffreMapper.convertToDTO(offreRepository.save(offre));
+            Recruteur recruteur = recruteurRepositoryRepository.getReferenceById(offre.getRecruteur());
+
+                List<Offre> list = recruteur.getOffres();
+                list.add(offre);
+                recruteur.setOffres(list);
+                offreRepository.save(offre);
+                recruteurRepositoryRepository.save(recruteur);
+                return OffreMapper.convertToDTO(offreRepository.save(offre));
+
         }
         }
 
@@ -44,7 +47,7 @@ public class OffreServiceImplementation implements OffreService {
 
         {
             Offre offre = offreRepository.getReferenceById(id);
-            Recruteur recruteur = offre.getRecruteur();
+            Recruteur recruteur = recruteurRepositoryRepository.getReferenceById(offre.getRecruteur());
             List<Offre> list = recruteur.getOffres();
             list.remove(offre);
             recruteur.setOffres(list);

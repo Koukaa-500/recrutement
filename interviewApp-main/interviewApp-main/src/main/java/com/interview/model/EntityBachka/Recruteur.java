@@ -28,7 +28,8 @@ public class Recruteur extends Utilisateur{
     @PrePersist
     public void init()
     {
-        this.setRole(RoleUtilisateur.recruteur);
+        this.setRole(RoleUtilisateur.recruteur
+        );
     }
 
 }

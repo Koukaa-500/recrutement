@@ -1,9 +1,6 @@
 package com.interview.model.EntityBachka;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +15,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Interview implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private   Integer id;
 private String dateHeure;
 private String responsable;

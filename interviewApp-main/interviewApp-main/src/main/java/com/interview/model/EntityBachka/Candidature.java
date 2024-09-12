@@ -2,10 +2,7 @@ package com.interview.model.EntityBachka;
 
 import com.interview.model.EntityBachka.Enum.CandidatureStatus;
 import com.interview.model.EntityBachka.Enum.RoleUtilisateur;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrePersist;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +16,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Candidature implements Serializable {
-    @Id
+    @Id    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     private Integer id;
     private CandidatureStatus status;
     @OneToOne

@@ -1,10 +1,7 @@
 package com.interview.model.EntityBachka;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +18,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Offre implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)  // or GenerationType.AUTO
     private Integer id;
     private String description;
     private String domaine;
@@ -30,7 +28,6 @@ public class Offre implements Serializable {
     private String ville;
     private LocalDateTime limite;
     private String contractType ;
-   @ManyToOne(optional = false,fetch = FetchType.EAGER)
-    private Recruteur recruteur;
+    private Integer recruteur;
 
 }
