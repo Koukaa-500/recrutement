@@ -26,21 +26,16 @@ public class OffreServiceImplementation implements OffreService {
 
     @Override
     public OffreDto ajouterOffre(OffreDto offreDto) {
-        if(offreRepository.existsById(offreDto.getId()))return null;
-        else {
-            Offre offre = OffreMapper.convertToEntity(offreDto,recruteurRepositoryRepository.getReferenceById(offreDto.getRecruteur()));
-            Recruteur recruteur = recruteurRepositoryRepository.getReferenceById(offre.getRecruteur().getId());
-
-                List<Offre> list = recruteur.getOffres();
-                list.add(offre);
-                recruteur.setOffres(list);
-                offre.setStatus(OffreStatus.PENDING);
-                offreRepository.save(offre);
-                recruteurRepositoryRepository.save(recruteur);
-                return OffreMapper.convertToDTO(offreRepository.save(offre));
-
+        if (offreDto.getId() != null && offreRepository.existsById(offreDto.getId())) {
+            return null; // Handle the case where the ID already exists
+        } else {
+            Offre offre = OffreMapper.convertToEntity(offreDto, recruteurRepositoryRepository.getReferenceById(offreDto.getRecruteur()));
+            offre.setStatus(OffreStatus.PENDING);
+            Offre savedOffre = offreRepository.save(offre);  // ID should be auto-generated
+            return OffreMapper.convertToDTO(savedOffre);
         }
-        }
+    }
+
 
 
     @Override

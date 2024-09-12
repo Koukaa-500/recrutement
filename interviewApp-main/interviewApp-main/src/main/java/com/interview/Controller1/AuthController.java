@@ -3,6 +3,7 @@ package com.interview.Controller1;
 import com.interview.model.Entity1.Utilisateur;
 import com.interview.serviceBachka.AuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,12 +32,13 @@ public class AuthController {
 
     // Endpoint for user login
     @PostMapping("/login")
-    public ResponseEntity<Utilisateur> login(@RequestBody  Utilisateur user) {
+    public ResponseEntity<Utilisateur> login(@RequestBody Utilisateur utilisateur) {
         try {
-            Utilisateur loggedInUser = authService.login(user);
-            return ResponseEntity.ok(loggedInUser); // Return the user if login is successful
+            Utilisateur loggedInUser = authService.login(utilisateur);
+            return ResponseEntity.ok(loggedInUser);
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(null); // Return an error message
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
     }
+
 }

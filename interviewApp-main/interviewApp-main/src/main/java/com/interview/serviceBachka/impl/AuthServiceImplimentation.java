@@ -92,30 +92,29 @@ public class AuthServiceImplimentation implements AuthService {
             Administrateur newuser = administrateurRepository.findByEmail(user.getEmail())
                     .orElseThrow(() -> new RuntimeException("Administrateur not found"));
             if (passwordEncoder.matches(user.getMotDePasse(), newuser.getMotDePasse())) {
-                return user;
+                return newuser;  // Return the full user object from the database
             } else {
                 throw new RuntimeException("Invalid password for Administrateur");
             }
         }
 
-
-        // Check if the user is a Recruteur
+        // Check for Recruteur
         if (recruteurRepository.existsByEmail(user.getEmail())) {
             Recruteur newuser = recruteurRepository.findByEmail(user.getEmail())
                     .orElseThrow(() -> new RuntimeException("Recruteur not found"));
             if (passwordEncoder.matches(user.getMotDePasse(), newuser.getMotDePasse())) {
-                return user;
+                return newuser;  // Return full user object
             } else {
                 throw new RuntimeException("Invalid password for Recruteur");
             }
         }
 
-        // Check if the user is a Candidat
+        // Check for Candidat
         if (candidatRepository.existsByEmail(user.getEmail())) {
             Candidat newuser = candidatRepository.findByEmail(user.getEmail())
                     .orElseThrow(() -> new RuntimeException("Candidat not found"));
-            if (passwordEncoder.matches(user.getMotDePasse(),newuser.getMotDePasse())) {
-                return user;
+            if (passwordEncoder.matches(user.getMotDePasse(), newuser.getMotDePasse())) {
+                return newuser;  // Return full user object
             } else {
                 throw new RuntimeException("Invalid password for Candidat");
             }
@@ -124,6 +123,7 @@ public class AuthServiceImplimentation implements AuthService {
         // If no user found, throw an exception
         throw new RuntimeException("User not found");
     }
+
 
 
 }
