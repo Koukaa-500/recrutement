@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+  import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -34,7 +34,20 @@ assignProfil(id,profile){
 }
 // findUserByEmail
 findUserByEmail(email){
-  return this.http.get(this.url+"/administrateurs/"+email);
+  const role = JSON.parse(localStorage.getItem('user')).role; 
+   if (role ==="admin")
+   {
+
+     return this.http.get(this.url+"/administrateurs/"+encodeURIComponent(email));
+   }else if (role ==="candidat")
+    {
+      return this.http.get(this.url+"/candidats/"+encodeURIComponent(email));
+
+    }else if (role ==="recruteur")
+      {
+      return this.http.get(this.url+"/recruteurs/"+encodeURIComponent(email));
+
+    }
 }
 
 }

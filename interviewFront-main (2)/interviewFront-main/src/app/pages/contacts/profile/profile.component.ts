@@ -26,7 +26,8 @@ email:any;
 interviews:any;
 
   constructor(private utilisateurService:UtilisateurService, private interviewService:InterviewService) { 
-    this.email = localStorage.getItem('user');
+    this.email = JSON.parse(localStorage.getItem('user')).email; // assurez-vous que l'email est bien extrait
+
     
     this.getInterviews();
   }
@@ -38,8 +39,7 @@ getInterviews()
   })
 }
   ngOnInit() {
-    console.log("data::",this.email);
-    this.getUserbyEmail(this.email.email);
+    this.getUserbyEmail(this.email);
 
     this.breadCrumbItems = [{ label: 'Contacts' }, { label: 'Profile', active: true }];
 
@@ -58,7 +58,7 @@ getInterviews()
   getUserbyEmail(email:any){
     this.utilisateurService.findUserByEmail(email).subscribe(data=>{
       this.utilisateur = data;
-      console.log("user",this.utilisateur);
+      console.log("user",data);
     })
   }
 
