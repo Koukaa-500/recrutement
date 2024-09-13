@@ -1,4 +1,4 @@
-package com.interview.serviceBachka.impl;
+package com.interview.service1.impl;
 
 import com.interview.model.DTO1.CandidatDto;
 import com.interview.model.DTO1.InterviewDto;
@@ -6,7 +6,7 @@ import com.interview.model.Entity1.Candidat;
 import com.interview.model.Entity1.Interview;
 import com.interview.repository1.CandidatRepository;
 import com.interview.repository1.InterviewRepository;
-import com.interview.serviceBachka.InterviewService;
+import com.interview.service1.InterviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

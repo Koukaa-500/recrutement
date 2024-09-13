@@ -2,7 +2,7 @@ package com.interview.Controller1;
 
 
 import com.interview.model.Entity1.Candidat;
-import com.interview.serviceBachka.UtilisateurService;
+import com.interview.service1.UtilisateurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,9 +43,9 @@ public class CandidatController {
         return isDeleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/all/{recruterId}")
-    public ResponseEntity<List<Candidat>> getCandidatByRecruteurOffre(@PathVariable Integer recruterId) {
-      return ResponseEntity.ok().body( utilisateurService.getCandidatByRecruteurOffre(recruterId).get());
-    }
+//    @GetMapping("/all/{recruterId}")
+//    public ResponseEntity<List<Candidat>> getCandidatByRecruteurOffre(@PathVariable Integer recruterId) {
+//      return ResponseEntity.ok().body( utilisateurService.getCandidatByRecruteurOffre(recruterId).get());
+//    }
 
 }

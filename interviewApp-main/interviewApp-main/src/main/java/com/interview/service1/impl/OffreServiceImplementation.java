@@ -1,4 +1,4 @@
-package com.interview.serviceBachka.impl;
+package com.interview.service1.impl;
 
 import com.interview.model.DTO1.OffreDto;
 import com.interview.model.Entity1.Candidat;
@@ -9,7 +9,7 @@ import com.interview.model.mappers.OffreMapper;
 import com.interview.repository1.CandidatureRepository;
 import com.interview.repository1.OffreRepository;
 import com.interview.repository1.RecruteurRepository;
-import com.interview.serviceBachka.OffreService;
+import com.interview.service1.OffreService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

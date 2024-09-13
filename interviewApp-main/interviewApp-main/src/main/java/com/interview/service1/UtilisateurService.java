@@ -1,4 +1,4 @@
-package com.interview.serviceBachka;
+package com.interview.service1;
 
 import com.interview.model.Entity1.*;
 
@@ -27,5 +27,5 @@ public interface UtilisateurService {
     boolean deleteCandidatById(Integer id);
 
 
-    Optional<List<Candidat>> getCandidatByRecruteurOffre(Integer recruteur);
+//    Optional<List<Candidat>> getCandidatByRecruteurOffre(Integer recruteur);
 }

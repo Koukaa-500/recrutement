@@ -1,8 +1,8 @@
-package com.interview.serviceBachka.impl;
+package com.interview.service1.impl;
 
 import com.interview.model.Entity1.*;
 import com.interview.repository1.*;
-import com.interview.serviceBachka.UtilisateurService;
+import com.interview.service1.UtilisateurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -106,21 +106,21 @@ public class UtilisateurServiceImplementation implements UtilisateurService {
     }
 
 
-    @Override
-    public Optional<List<Candidat>> getCandidatByRecruteurOffre(Integer recruteur) {
-
-      List<Candidature> list=  candidatureRepository.findAll();
-        Optional<List<Candidat>> listCandidat = Optional.of(Collections.emptyList());
-        for (Candidature c:list
-             ) {
-            if(c.getOffre().getRecruteur().getId().equals(recruteur)){
-                listCandidat.get().add(c.getCandidat());
-            }
-
-        }
-
-        return listCandidat;
-    }
+//    @Override
+//    public Optional<List<Candidat>> getCandidatByRecruteurOffre(Integer recruteur) {
+//
+//      List<Candidature> list=  candidatureRepository.findAll();
+//        Optional<List<Candidat>> listCandidat = Optional.of(Collections.emptyList());
+//        for (Candidature c:list
+//             ) {
+//            if(c.getOffre().getRecruteur().getId().equals(recruteur)){
+//                listCandidat.get().add(c.getCandidat());
+//            }
+//
+//        }
+//
+//        return listCandidat;
+//    }
 
 
 }

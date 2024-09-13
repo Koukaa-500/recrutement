@@ -1,7 +1,7 @@
 package com.interview.Controller1;
 
 import com.interview.model.Entity1.Utilisateur;
-import com.interview.serviceBachka.AuthService;
+import com.interview.service1.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

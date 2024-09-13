@@ -1,7 +1,7 @@
 package com.interview.Controller1;
 
 import com.interview.model.DTO1.InterviewDto;
-import com.interview.serviceBachka.InterviewService;
+import com.interview.service1.InterviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

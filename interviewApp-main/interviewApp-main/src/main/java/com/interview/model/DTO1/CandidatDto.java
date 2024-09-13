@@ -12,21 +12,13 @@ import java.util.List;
 
 @Data
 public class CandidatDto {
+    private Integer id; // Remove @Id and @GeneratedValue
     @NotBlank
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @NotBlank
-
     private String nom;
     @NotBlank
-
     private String prenom;
     private Integer age;
     private String email;
     private RoleUtilisateur role;
-    @NotBlank
-
     private List<Interview> interviews;
 }

@@ -1,4 +1,4 @@
-package com.interview.serviceBachka;
+package com.interview.service1;
 
 import com.interview.model.DTO1.OffreDto;
 import com.interview.model.Entity1.Candidat;

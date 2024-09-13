@@ -18,7 +18,7 @@ public class Candidat extends Utilisateur  {
    private List<String> education;
     private   List<String> skills;
     private  List<String> certificates;
-    private  List<Offre> offres;
+    private  List<Integer> offres;
 
     private  List<Interview> interviews;
     @PrePersist

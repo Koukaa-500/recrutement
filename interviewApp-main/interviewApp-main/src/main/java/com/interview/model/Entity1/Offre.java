@@ -30,6 +30,7 @@ public class Offre implements Serializable {
     @Enumerated(EnumType.STRING)  // Persist enum as a string in the database
 
     private OffreStatus status;
+
     private LocalDateTime limite;
     private String contractType ;
 

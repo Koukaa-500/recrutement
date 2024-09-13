@@ -1,4 +1,4 @@
-package com.interview.serviceBachka.impl;
+package com.interview.service1.impl;
 
 import com.interview.model.Entity1.Administrateur;
 import com.interview.model.Entity1.Candidat;
@@ -7,7 +7,7 @@ import com.interview.model.Entity1.Utilisateur;
 import com.interview.repository1.AdministrateurRepository;
 import com.interview.repository1.CandidatRepository;
 import com.interview.repository1.RecruteurRepository;
-import com.interview.serviceBachka.AuthService;
+import com.interview.service1.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

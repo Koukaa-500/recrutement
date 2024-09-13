@@ -8,22 +8,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Candidature implements Serializable {
-    @Id    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
+    @Id
+    @GeneratedValue
     private Integer id;
     private CandidatureStatus status;
-    @OneToOne
-    private Offre offre;
-    @OneToOne
-    private Candidat candidat;
+
+    private Integer offre;
+
+    private Integer candidat;
     @PrePersist
     public void init()
     {

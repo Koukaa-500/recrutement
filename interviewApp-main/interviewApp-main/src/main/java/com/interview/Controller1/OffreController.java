@@ -1,7 +1,7 @@
 package com.interview.Controller1;
 
 import com.interview.model.Entity1.Enum.OffreStatus;
-import com.interview.serviceBachka.OffreService;
+import com.interview.service1.OffreService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
