@@ -12,6 +12,7 @@ import com.interview.repository1.CandidatureRepository;
 import com.interview.repository1.OffreRepository;
 import com.interview.service1.CandidatureService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,8 +47,6 @@ public class CandidatureServiceImplementation implements CandidatureService {
     }
 
 
-
-
 //    @Override
 //    public List<CandidatureDto> getAllCandidaturebyCandidat(Integer id) {
 //        return candidatureRepository.findAll().stream()
@@ -63,7 +62,8 @@ public class CandidatureServiceImplementation implements CandidatureService {
         candidature.setStatus(status);
         return CandidatureMapper.convertToDTO(candidatureRepository.save(candidature));
     }
-//
+
+    //
     @Override
     public Boolean supprimerCandidature(CandidatureDto candidatureDto) {
         Candidature candidature = candidatureRepository.findById(candidatureDto.getId())
@@ -88,8 +88,11 @@ public class CandidatureServiceImplementation implements CandidatureService {
 
         return CandidatureMapper.convertToDTO(candidature);
     }
+
+
     @Override
-   public List<CandidatureDto> getall(){
+    public List<CandidatureDto> getall() {
         return candidatureRepository.findAll().stream().map(CandidatureMapper::convertToDTO).toList();
     }
+
 }

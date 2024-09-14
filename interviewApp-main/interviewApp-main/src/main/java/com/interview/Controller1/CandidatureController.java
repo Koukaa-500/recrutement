@@ -38,7 +38,7 @@ public class CandidatureController {
 //        return candidatureService.supprimerCandidature(candidatureDto);
 //    }
 
-    @GetMapping("/candidature/{id}")
+    @GetMapping("/cand/{id}")
     public ResponseEntity<CandidatureDto> getCandidatureDetails(@PathVariable Integer id) {
         CandidatureDto detailedCandidatureDto = candidatureService.getCandidatureDetails(id);
         return ResponseEntity.ok(detailedCandidatureDto);
@@ -47,6 +47,12 @@ public class CandidatureController {
     @GetMapping("getAll")
     public ResponseEntity<List<CandidatureDto>> getAllCandidatures() {
         List<CandidatureDto> detailedCandidatureDto = candidatureService.getall();
+        return ResponseEntity.ok(detailedCandidatureDto);
+    }
+
+    @GetMapping("/candidature/{jobid}")
+    public ResponseEntity<CandidatureDto> getCandidatureJobDetails(@PathVariable Integer jobId) {
+        CandidatureDto detailedCandidatureDto = candidatureService.getCandidatureDetails(jobId);
         return ResponseEntity.ok(detailedCandidatureDto);
     }
 }
