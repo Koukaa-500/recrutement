@@ -55,6 +55,7 @@ public class ReclamationServiceImplimentation implements ReclamationService {
         return reclamationRepository.findById(id)
                 .map(reclamation -> {
                     reclamation.setResponse(response);
+                    reclamation.setIsResponded(true);
                     reclamation.setStatus("CLOSED"); // Update status if necessary
                     return reclamationRepository.save(reclamation);
                 });

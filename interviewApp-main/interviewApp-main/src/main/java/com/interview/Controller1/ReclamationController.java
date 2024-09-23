@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/reclamations")
 public class ReclamationController {
@@ -27,4 +30,24 @@ public class ReclamationController {
         List<Reclamation> reclamations = reclamationService.getReclamationsByCandidat(candidatId);
         return ResponseEntity.ok(reclamations);
     }
+
+    @GetMapping("/admin")
+    public ResponseEntity<List<Reclamation>> getAllReclamations() {
+        List<Reclamation> reclamations = reclamationService.getAllReclamations();
+        return ResponseEntity.ok(reclamations);
+    }
+
+    // Respond to a specific reclamation
+    @PostMapping("/{id}")
+    public ResponseEntity<Reclamation> respondToReclamation(
+            @PathVariable Integer id,
+            @RequestBody Map<String, String> body) {
+        String responseText = body.get("response");
+        Optional<Reclamation> updatedReclamation = reclamationService.respondToReclamation(id, responseText);
+        return updatedReclamation
+                .map(reclamation -> ResponseEntity.ok(reclamation))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+
 }
