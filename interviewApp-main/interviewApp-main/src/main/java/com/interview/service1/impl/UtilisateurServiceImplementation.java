@@ -5,6 +5,8 @@ import com.interview.repository1.*;
 import com.interview.service1.UtilisateurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +19,7 @@ public class UtilisateurServiceImplementation implements UtilisateurService {
     private final AdministrateurRepository administrateurRepository;
     private final CandidatRepository candidatRepository;
     private final RecruteurRepository recruteurRepository;
-
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Optional<Recruteur> getRecruteurByEmail(String email) {
@@ -52,19 +54,32 @@ public class UtilisateurServiceImplementation implements UtilisateurService {
 
     @Override
     public Optional<Recruteur> modifyRecruteur(Integer id, Recruteur recruteur) {
+        String encodedPassword = passwordEncoder.encode(recruteur.getMotDePasse());
         // Check if a Recruteur with the given id exists
         if (!recruteurRepository.existsById(id)) {
             return Optional.empty(); // Return empty if the Recruteur does not exist
         }
 
-        // Set the id of the recruteur object to the id provided in the URL
-        recruteur.setId(id);
+        // Retrieve the existing Recruteur
+        Recruteur existingRecruteur = recruteurRepository.findById(id).get();
+
+        // Update fields
+        existingRecruteur.setNom(recruteur.getNom());
+        existingRecruteur.setPrenom(recruteur.getPrenom());
+        existingRecruteur.setAge(recruteur.getAge());
+
+        // Update password if provided
+        if (recruteur.getMotDePasse() != null && !recruteur.getMotDePasse().isEmpty()) {
+
+            existingRecruteur.setMotDePasse(encodedPassword);
+        }
 
         // Save the updated Recruteur object
-        Recruteur updatedRecruteur = recruteurRepository.save(recruteur);
+        Recruteur updatedRecruteur = recruteurRepository.save(existingRecruteur);
 
         return Optional.of(updatedRecruteur);
-    }
+}
+
 
 
     @Override
@@ -86,11 +101,17 @@ public class UtilisateurServiceImplementation implements UtilisateurService {
         // Set the id of the administrateur object to the id provided in the URL
         administrateur.setId(id);
 
+        // Encrypt the password if it's provided
+        if (administrateur.getMotDePasse() != null) {
+            administrateur.setMotDePasse(passwordEncoder.encode(administrateur.getMotDePasse()));
+        }
+
         // Save the updated Administrateur object
         Administrateur updatedAdministrateur = administrateurRepository.save(administrateur);
 
         return Optional.of(updatedAdministrateur);
     }
+
 
 
     @Override
@@ -112,11 +133,17 @@ public class UtilisateurServiceImplementation implements UtilisateurService {
         // Set the id of the candidat object to the id provided in the URL
         candidat.setId(id);
 
+        // Encrypt the password if it's provided
+        if (candidat.getMotDePasse() != null) {
+            candidat.setMotDePasse(passwordEncoder.encode(candidat.getMotDePasse()));
+        }
+
         // Save the updated Candidat object
         Candidat updatedCandidat = candidatRepository.save(candidat);
 
         return Optional.of(updatedCandidat);
     }
+
 
 
     @Override
