@@ -14,15 +14,22 @@ public interface UtilisateurService {
     Optional<Candidat> getCandidatByEmail(String email);
     List<Candidat> getAllCandidats();
 
-    Optional<Recruteur> modifyRecruteur(Recruteur recruteur);
+
+
+    Optional<Recruteur> modifyRecruteur(Integer id, Recruteur recruteur);
 
     boolean deleteRecruteurById(Integer id);
 
-    Optional<Administrateur> modifyAdministrateur(Administrateur administrateur);
+
+    Optional<Administrateur> modifyAdministrateur(Integer id, Administrateur administrateur);
 
     boolean deleteAdministrateurById(Integer id);
 
-    Optional<Candidat> modifyCandidat(Candidat candidat);
+
+
+
+
+    Optional<Candidat> modifyCandidat(Integer id, Candidat candidat);
 
     boolean deleteCandidatById(Integer id);
 

@@ -29,13 +29,16 @@ public class RecruteurController {
             List<Recruteur> recruteurs = utilisateurService.getAllRecruteurs();
             return ResponseEntity.ok().body(recruteurs);
         }
-    @PutMapping
-    public ResponseEntity<Recruteur> modifyRecruteur(@RequestBody Recruteur recruteur) {
-        Optional<Recruteur> updatedRecruteur = utilisateurService.modifyRecruteur(recruteur);
+    @PutMapping("/{id}")
+    public ResponseEntity<Recruteur> modifyRecruteur(@PathVariable Integer id, @RequestBody Recruteur recruteur) {
+        // Call the service with the id and the updated Recruteur object
+        Optional<Recruteur> updatedRecruteur = utilisateurService.modifyRecruteur(id, recruteur);
+
         return updatedRecruteur
                 .map(recruteur1 -> ResponseEntity.ok().body(recruteur1))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteRecruteurById(@PathVariable Integer id) {

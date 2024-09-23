@@ -6,7 +6,6 @@ import com.interview.service1.UtilisateurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,13 +51,21 @@ public class UtilisateurServiceImplementation implements UtilisateurService {
     }
 
     @Override
-    public Optional<Recruteur> modifyRecruteur(Recruteur recruteur) {
-        if (recruteur.getId() == null || !recruteurRepository.existsById(recruteur.getId())) {
-            return Optional.empty(); // Return empty if the recruteur does not exist
+    public Optional<Recruteur> modifyRecruteur(Integer id, Recruteur recruteur) {
+        // Check if a Recruteur with the given id exists
+        if (!recruteurRepository.existsById(id)) {
+            return Optional.empty(); // Return empty if the Recruteur does not exist
         }
+
+        // Set the id of the recruteur object to the id provided in the URL
+        recruteur.setId(id);
+
+        // Save the updated Recruteur object
         Recruteur updatedRecruteur = recruteurRepository.save(recruteur);
+
         return Optional.of(updatedRecruteur);
     }
+
 
     @Override
     public boolean deleteRecruteurById(Integer id) {
@@ -70,13 +77,21 @@ public class UtilisateurServiceImplementation implements UtilisateurService {
     }
 
     @Override
-    public Optional<Administrateur> modifyAdministrateur(Administrateur administrateur) {
-        if (administrateur.getId() == null || !administrateurRepository.existsById(administrateur.getId())) {
-            return Optional.empty(); // Return empty if the administrateur does not exist
+    public Optional<Administrateur> modifyAdministrateur(Integer id, Administrateur administrateur) {
+        // Check if an Administrateur with the given id exists
+        if (!administrateurRepository.existsById(id)) {
+            return Optional.empty(); // Return empty if the Administrateur does not exist
         }
+
+        // Set the id of the administrateur object to the id provided in the URL
+        administrateur.setId(id);
+
+        // Save the updated Administrateur object
         Administrateur updatedAdministrateur = administrateurRepository.save(administrateur);
+
         return Optional.of(updatedAdministrateur);
     }
+
 
     @Override
     public boolean deleteAdministrateurById(Integer id) {
@@ -88,13 +103,21 @@ public class UtilisateurServiceImplementation implements UtilisateurService {
     }
 
     @Override
-    public Optional<Candidat> modifyCandidat(Candidat candidat) {
-        if (candidat.getId() == null || !candidatRepository.existsById(candidat.getId())) {
-            return Optional.empty(); // Return empty if the candidat does not exist
+    public Optional<Candidat> modifyCandidat(Integer id, Candidat candidat) {
+        // Check if a Candidat with the given id exists
+        if (!candidatRepository.existsById(id)) {
+            return Optional.empty(); // Return empty if the Candidat does not exist
         }
+
+        // Set the id of the candidat object to the id provided in the URL
+        candidat.setId(id);
+
+        // Save the updated Candidat object
         Candidat updatedCandidat = candidatRepository.save(candidat);
+
         return Optional.of(updatedCandidat);
     }
+
 
     @Override
     public boolean deleteCandidatById(Integer id) {

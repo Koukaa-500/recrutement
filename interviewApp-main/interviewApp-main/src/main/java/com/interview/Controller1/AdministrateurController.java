@@ -29,13 +29,16 @@ public class AdministrateurController {
         return ResponseEntity.ok().body(administrateurs);
     }
 
-    @PutMapping
-    public ResponseEntity<Administrateur> modifyAdministrateur(@RequestBody Administrateur administrateur) {
-        Optional<Administrateur> updatedAdministrateur = utilisateurService.modifyAdministrateur(administrateur);
+    @PutMapping("/{id}")
+    public ResponseEntity<Administrateur> modifyAdministrateur(@PathVariable Integer id, @RequestBody Administrateur administrateur) {
+        // Call the service with the id and the updated Administrateur object
+        Optional<Administrateur> updatedAdministrateur = utilisateurService.modifyAdministrateur(id, administrateur);
+
         return updatedAdministrateur
                 .map(administrateur1 -> ResponseEntity.ok().body(administrateur1))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAdministrateurById(@PathVariable Integer id) {

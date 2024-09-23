@@ -2,7 +2,9 @@ package com.interview.Controller1;
 
 
 import com.interview.model.Entity1.Candidat;
+import com.interview.model.Entity1.Reclamation;
 import com.interview.service1.UtilisateurService;
+import com.interview.service1.ReclamationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,13 +31,16 @@ public class CandidatController {
         List<Candidat> candidats = utilisateurService.getAllCandidats();
         return ResponseEntity.ok().body(candidats);
     }
-    @PutMapping
-    public ResponseEntity<Candidat> modifyCandidat(@RequestBody Candidat candidat) {
-        Optional<Candidat> updatedCandidat = utilisateurService.modifyCandidat(candidat);
+    @PutMapping("/{id}")
+    public ResponseEntity<Candidat> modifyCandidat(@PathVariable Integer id, @RequestBody Candidat candidat) {
+        // Call the service with the ID and the updated Candidat object
+        Optional<Candidat> updatedCandidat = utilisateurService.modifyCandidat(id, candidat);
+
         return updatedCandidat
                 .map(candidat1 -> ResponseEntity.ok().body(candidat1))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCandidatById(@PathVariable Integer id) {
