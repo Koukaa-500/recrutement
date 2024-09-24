@@ -13,4 +13,9 @@ public interface ReclamationService {
     // Admin methods
     List<Reclamation> getAllReclamations();
     Optional<Reclamation> respondToReclamation(Integer id, String response);
+    Optional<Reclamation> getReclamationById(Integer id);
+
+    Optional<Reclamation> findExistingReclamation(Integer candidatId, Integer jobId);
+
+    boolean deleteReclamation(Integer id);
 }

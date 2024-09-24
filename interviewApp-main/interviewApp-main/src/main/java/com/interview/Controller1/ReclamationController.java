@@ -49,5 +49,17 @@ public class ReclamationController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/byid/{id}")
+    public ResponseEntity<Reclamation> getReclamationById(@PathVariable Integer id) {
+        return reclamationService.getReclamationById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteReclamationById(@PathVariable Integer id) {
+        boolean isDeleted = reclamationService.deleteReclamation(id);
+        return isDeleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    }
 
 }

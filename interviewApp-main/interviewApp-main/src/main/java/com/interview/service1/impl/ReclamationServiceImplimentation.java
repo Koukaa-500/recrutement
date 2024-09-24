@@ -26,14 +26,21 @@ public class ReclamationServiceImplimentation implements ReclamationService {
         var candidat = candidatRepository.findById(candidatId)
                 .orElseThrow(() -> new EntityNotFoundException("Candidat not found"));
 
+        // Check for existing reclamation
+        Optional<Reclamation> existingReclamation = findExistingReclamation(candidatId, jobId);
+        if (existingReclamation.isPresent()) {
+            return existingReclamation.get(); // Return the existing reclamation if found
+        }
+
         Reclamation reclamation = new Reclamation();
         reclamation.setCandidat(candidat);
-        reclamation.setJobId(jobId); // Set jobId directly
+        reclamation.setJobId(jobId);
         reclamation.setContent(content);
-        reclamation.setStatus("OPEN");
+        reclamation.setStatus("Pending");
 
         return reclamationRepository.save(reclamation);
     }
+
 
     // Candidate views their reclamations
     @Override
@@ -41,6 +48,11 @@ public class ReclamationServiceImplimentation implements ReclamationService {
         var candidat = candidatRepository.findById(candidatId)
                 .orElseThrow(() -> new EntityNotFoundException("Candidat not found"));
         return reclamationRepository.findByCandidat(candidat);
+    }
+
+    @Override
+    public Optional<Reclamation> getReclamationById(Integer id) {
+        return reclamationRepository.findById(id);
     }
 
     // Admin views all reclamations
@@ -56,8 +68,22 @@ public class ReclamationServiceImplimentation implements ReclamationService {
                 .map(reclamation -> {
                     reclamation.setResponse(response);
                     reclamation.setIsResponded(true);
-                    reclamation.setStatus("CLOSED"); // Update status if necessary
+                    reclamation.setStatus("Opened"); // Update status if necessary
                     return reclamationRepository.save(reclamation);
                 });
     }
+    @Override
+    public Optional<Reclamation> findExistingReclamation(Integer candidatId, Integer jobId) {
+        return reclamationRepository.findByCandidatIdAndJobId(candidatId, jobId);
+    }
+
+    @Override
+    public boolean deleteReclamation(Integer id) {
+        if (reclamationRepository.existsById(id)) {
+            reclamationRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }
+

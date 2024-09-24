@@ -12,7 +12,9 @@ import com.interview.repository1.RecruteurRepository;
 import com.interview.service1.OffreService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -60,6 +62,7 @@ public class OffreServiceImplementation implements OffreService {
 
         return OffreMapper.convertToDTO(offreRepository.save(offre));
     }
+
     @Override
     public List<OffreDto> getAllOffre(){
         return offreRepository.findAll().stream().map(OffreMapper::convertToDTO).toList();
